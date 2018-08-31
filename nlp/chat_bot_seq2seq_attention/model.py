@@ -54,7 +54,7 @@ class Seq2SeqModel():
             encoder_inputs_embedded = tf.nn.embedding_lookup(embedding, self.encoder_inputs)
             # 使用dynamic_rnn构建LSTM模型，将输入编码成隐层向量。
             # encoder_outputs用于attention，batch_size*encoder_inputs_length*rnn_size,
-            # encoder_state用于decoder的初始化状态，batch_size*rnn_szie
+            # encoder_state用于decoder的初始化状态，batch_size*rnn_size
             encoder_outputs, encoder_state = tf.nn.dynamic_rnn(encoder_cell, encoder_inputs_embedded,
                                                                sequence_length=self.encoder_inputs_length,
                                                                dtype=tf.float32)
